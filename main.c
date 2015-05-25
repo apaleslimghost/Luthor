@@ -109,7 +109,7 @@ int main(int argc, char** argv) {
 	LexTokens tokens = {t, 2};
 
 	int i; LexResult result;
-	vec_result_t results = lex("foobarbaz", &tokens);
+	vec_result_t results = lex("foobzbar", &tokens);
 	vec_foreach(&results, result, i) {
 		printLexResult(&result);
 	}
