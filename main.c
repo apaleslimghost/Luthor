@@ -77,7 +77,10 @@ void printLexResult(LexResult* result) {
 pcre* r(char* reg) {
 	const char* err;
 	int erroff;
-	return pcre_compile(reg, 0, &err, &erroff, NULL);
+	char* sreg = malloc(strlen(reg) + 2);
+	sreg[0] = '^';
+	strcat(sreg, reg);
+	return pcre_compile(sreg, 0, &err, &erroff, NULL);
 }
 
 typedef vec_t(LexResult) vec_result_t;
