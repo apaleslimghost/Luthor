@@ -9,6 +9,9 @@ OBJS := $(patsubst %.c, %.o, $(C_FILES))
 
 all: $(PROGRAM)
 
+debug:
+	make -B CFLAGS=-g
+
 foo:
 	@echo $(C_FILES) $(OBJS)
 
