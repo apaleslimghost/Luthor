@@ -93,7 +93,7 @@ vec_result_t lex(char* str, LexTokens* tokens) {
 
 	LexResult result;
 
-	while(strlen(rest)/* && ((LexResult*) results.content)->type != LexError*/) {
+	while(strlen(rest) && result.type != LexError) {
 		result = lexOne(rest, tokens);
 		rest = result.rest;
 		vec_push(&results, result);
