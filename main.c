@@ -49,13 +49,16 @@ LexResult lexOne(char* str, LexTokens* tokens) {
 		}
 	}
 
-	char message[50];
-	sprintf(message, "No tokens matched %.*s", 30, str);
+	const char* blurb = "No tokens matched ";
+	char* message = malloc(strlen(blurb) + strlen(str) + 1);
+	strcpy(message, blurb);
+	strcat(message, str);
 
 	LexResult err = {
 		.type = LexError,
 		.name = "No match",
-		.content = message
+		.content = message,
+		.rest = ""
 	};
 	return err;
 }
